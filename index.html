@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animal Health Certificate</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="certForm" class="sheet" novalidate>
+  <header>
+    <p class="gov">Government of Karnataka</p>
+    <p class="dept">Department of Animal Husbandry and Veterinary Services</p>
+    <h1>Animal Health Certificate</h1>
+  </header>
+
+  <div class="row2 top">
+    <label>Sl. No<input name="slno"></label>
+    <label>Institution<input name="institution" required></label>
+  </div>
+
+  <fieldset class="sec-owner">
+    <legend>Owner details</legend>
+    <div class="grid">
+      <label>1. Name of the owner<input name="name" required></label>
+      <label>2. Farmer ID No. (Fruits)<input name="fruits"></label>
+      <label>3. Category
+        <select name="category"><option value="">Select</option><option>General</option><option>SC</option><option>ST</option><option>OBC</option></select>
+      </label>
+      <label>5. Occupation<input name="occupation"></label>
+      <label class="full">4. Address<textarea name="address" rows="2"></textarea></label>
+    </div>
+  </fieldset>
+
+  <fieldset class="sec-animals">
+    <legend>6. Description of the animal/s</legend>
+    <div id="animalList"></div>
+    <div class="actions">
+      <button type="button" id="addRow" class="btn">+ Add animal</button>
+      <span id="rowHint" class="hint">1 animal added</span>
+    </div>
+  </fieldset>
+
+  <fieldset class="sec-health">
+    <legend>Health &amp; insurance details</legend>
+    <label class="full">7. Habitat of animal / source of supply<input name="source"></label>
+    <div id="questions" class="qlist"></div>
+  </fieldset>
+
+  <p class="declaration">I hereby certify that I have this day carefully examined the above animal/s described in the schedule and they are sound, healthy and in good condition at the time of examination. I also certify that the insurance company may accept the risk of the said animal/s.</p>
+
+  <fieldset class="sec-vet">
+    <legend>Veterinary officer</legend>
+    <div class="grid">
+      <label>Name<input name="dr" required></label>
+      <label>Designation<input name="designation"></label>
+      <label>Qualification<input name="qualification"></label>
+      <label>KVC No<input name="kvc"></label>
+      <label>Place<input name="place"></label>
+      <label>Date<input type="date" name="today"></label>
+    </div>
+  </fieldset>
+
+  <div class="actions end">
+    <button type="button" class="btn" id="pdfBtn" hidden>Download PDF</button>
+    <button type="button" class="btn" id="docxBtn" hidden>Download Word</button>
+    <button type="reset" class="btn ghost" id="resetBtn">New form</button>
+    <button type="submit" class="btn primary" id="submitBtn">Submit</button>
+  </div>
+  <p id="status" role="status"></p>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
